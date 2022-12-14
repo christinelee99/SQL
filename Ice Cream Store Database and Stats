@@ -19,9 +19,12 @@ INSERT INTO store VALUES (15, "salted caramel", 4, 20, 3);
 
 
 SELECT * FROM store;
-select id,name, rating from store order by id ;
-select name, stock from store group by name;
-select sum(price*stock) from store;
+
+SELECT id,name, rating FROM store ORDER BY id;
+
+SELECT name, stock FROM store GROUP BY name;
+
+SELECT sum(price*stock) FROM store;
 
 
 
