@@ -70,23 +70,23 @@ INSERT INTO BIT_DB.CityBikeLanes values(60,2002, 2021,"Mouse",4.5,4.3,"no");
 
 - QUERY #1 
 -- Get an overview of the data. Instead of looking at the entire table, 10 rows will do. 
-SELECT * FROM CityBikeLanes LIMIT 10
+SELECT * FROM CityBikeLanes LIMIT 10;
 
 -- QUERY #2 
 -- Run this SQL and make note of what you see. Why are there two rows in the results? 
-SELECT * FROM CityBikeLanes WHERE street='Walnut'
+SELECT * FROM CityBikeLanes WHERE street='Walnut';
 
 
 -- SQL QUERY WITHIN THE CTE THAT CAN RUN ON ITS OWN
 SELECT street, AVG(safetyrating) as 'rating'
 FROM citybikelanes
-GROUP BY street
+GROUP BY street;
 
 -- COMPLETE CTE
 WITH safety_average_cte AS (
 SELECT street, AVG(safetyrating) as 'rating'
 FROM citybikelanes
-GROUP BY street)
+GROUP BY street);
 
 # Selects the average safetyrating for each bike lane from the CTE
 # Filters to only the bike lanes that have an average safety rating of 4.0 or higher
@@ -95,7 +95,7 @@ GROUP BY street)
 SELECT street, rating,
 'safe lane' as label
 FROM safety_average_cte
-WHERE rating >= 4
+WHERE rating >= 4;
 
 ## Windows Function 
 # Add a label with the recommendation as "Remove", "Leave As-Is", or "Improvements Needed".
@@ -110,4 +110,4 @@ CASE
     WHEN AVG(safetyrating) OVER (PARTITION BY street) < 2.5 THEN "Remove"
     ELSE "Improvements Needed"
 END as 'Recommendation'
-FROM CityBikeLanes
+FROM CityBikeLanes;
