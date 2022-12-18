@@ -73,7 +73,8 @@ INSERT INTO BIT_DB.CityBikeLanes values(60,2002, 2021,"Mouse",4.5,4.3,"no");
 SELECT * FROM CityBikeLanes LIMIT 10;
 
 -- QUERY #2 
--- Run this SQL and make note of what you see. Why are there two rows in the results? 
+-- Walnut street has two different safety ratings: 
+-- 3.7 and 3.8. There were two different technicians who each rated the bike lanes individually.
 SELECT * FROM CityBikeLanes WHERE street='Walnut';
 
 
